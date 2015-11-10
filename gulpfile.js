@@ -2,8 +2,35 @@
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var Server = require('karma').Server;
+var sourcemaps =  require('gulp-sourcemaps');
+var tsc = require('gulp-typescript');
+
+var tsProject = tsc.createProject('tsconfig.json');
 
 gulp.task('default', ['test', 'minify']);
+
+
+var config = {
+
+}
+
+/**
+ * Compile TypeScript
+ */
+gulp.task('compile-ts', function () {
+    var sourceTsFiles = [
+        'src/**/*.ts',      //path to typescript files
+        'typings/**/*.ts'   //reference to library .d.ts files
+    ];
+
+    var tsResult = gulp.src(sourceTsFiles)
+                       .pipe(sourcemaps.init())
+                       .pipe(tsc(tsProject));
+
+    return tsResult.js
+                    .pipe(sourcemaps.write('.'))
+                    .pipe(gulp.dest('src'));
+});
 
 gulp.task('minify', function() {
     gulp.src(['src/core/*.js', 'src/externals/*.js', 'src/components/**/*Directive.js'])
@@ -29,4 +56,3 @@ gulp.task('tdd', function (done) {
         singleRun: false
     }, done).start();
 });
-
