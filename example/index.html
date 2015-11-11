@@ -7,9 +7,9 @@
     <script src="../node_modules/angular/angular.js"></script>
 
     <script src="../dist/fabricui-directives.js"></script>
-    
-    <link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/1.0/fabric.min.css"/>
-    <link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/1.0/fabric.components.min.css"/>
+
+    <link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/1.1.3/fabric.min.css"/>
+    <link rel="stylesheet" href="https://appsforoffice.microsoft.com/fabric/1.1.3/fabric.components.min.css"/>
     <script src="index.js"></script>
     <style type="text/css">
         .css-form input.ng-invalid.ng-touched {
@@ -24,6 +24,34 @@
 
 <body ng-app="testApp" ng-controller="testController">
     <form novalidate class="css-form" name="mainForm">
+        <h1 class="ms-font-su">Persona</h1>
+        <div class="ms-Grid-row">
+            <div class="ms-Grid-col ms-u-sm4">
+                <uif-persona primary="primary extra-small" secondary="secondary text" tertiary="tertiary text" optional="meta" tiny></uif-persona>
+                <uif-persona primary="primary small" secondary="secondary text" tertiary="tertiary text" optional="meta" small></uif-persona>
+                <uif-persona primary="primary normal" secondary="secondary text" tertiary="tertiary text" optional="meta"></uif-persona>
+                <uif-persona primary="primary large" secondary="secondary text" tertiary="tertiary text" optional="meta" large></uif-persona>
+                <uif-persona primary="primary extra large" secondary="secondary text" tertiary="tertiary text" optional="meta" extra-large></uif-persona>
+            </div>
+            <div class="ms-Grid-col ms-u-sm4">
+                <uif-persona primary="primary tiny" secondary="secondary text" tertiary="tertiary text" optional="meta" tiny square></uif-persona>
+                <uif-persona primary="primary extra-small" secondary="secondary text" tertiary="tertiary text" optional="meta" extra-small square></uif-persona>
+                <uif-persona primary="primary small" secondary="secondary text" tertiary="tertiary text" optional="meta" small square></uif-persona>
+                <uif-persona primary="primary normal" secondary="secondary text" tertiary="tertiary text" optional="meta" square></uif-persona>
+                <uif-persona primary="primary large" secondary="secondary text" tertiary="tertiary text" optional="meta" large square></uif-persona>
+                <uif-persona primary="primary extra large" secondary="secondary text" tertiary="tertiary text" optional="meta" extra-large square></uif-persona>
+            </div>
+
+            <div class="ms-Grid-col ms-u-sm4">
+                <uif-persona primary="Presence" secondary="available" tertiary="tertiary text" optional="meta" square available></uif-persona>
+                <uif-persona primary="Presence" secondary="away" tertiary="tertiary text" optional="meta" square away></uif-persona>
+                <uif-persona primary="Presence" secondary="blocked" tertiary="tertiary text" optional="meta" square blocked></uif-persona>
+                <uif-persona primary="Presence" secondary="busy" tertiary="tertiary text" optional="meta" square busy></uif-persona>
+                <uif-persona primary="Presence" secondary="dnd" tertiary="tertiary text" optional="meta" square dnd></uif-persona>
+                <uif-persona primary="Presence" secondary="offline" tertiary="tertiary text" optional="meta" square offline></uif-persona>
+            </div>
+        </div>
+
         <h1 class="ms-font-su">Toggle</h1>
         <uif-toggle label-off="Off" label-on="On" toggled="toggled" text-location="right">Toggle this</uif-toggle>
         <span>Toggled: {{toggled}}</span>
