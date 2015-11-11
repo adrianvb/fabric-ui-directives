@@ -1,8 +1,8 @@
 # exclude compiled javascript
 src/components/*/*.js
 src/components/*/*.js.map
-src/core/*/*.js
-src/core/*/*.js.map
+src/core/*.js
+src/core/*.js.map
 
 # exclude typings
 typings/
