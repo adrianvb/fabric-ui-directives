@@ -43,6 +43,15 @@ gulp.task('minify', function() {
         .pipe(gulp.dest('./dist/'));
 });
 
+gulp.task('watch', ['compile-ts', 'minify'], function() {
+    gulp.watch('src/components/**/*.ts' , ['compile-ts', 'minify', 'test']);
+});
+
+gulp.task('watch-atom', ['minify'], function() {
+    gulp.watch('src/components/**/*.js' , ['minify', 'test']);
+});
+
+
 gulp.task('test', function (done) {
     new Server({
         configFile: __dirname  + '/karma.conf.js',
